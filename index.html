@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script lang="javascript" src="xlsx.full.min.js"></script>
+    <title>엑셀 다운로드 테스트</title>
+
+    <style>
+        table {
+            width: 100%;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <table id="mytable">
+        <thead>
+            <tr>
+                <th>상품 명</th>
+                <th>가격</th>
+                <th>재고</th>
+                <th>등록일</th>
+                <th>판매자 전화번호</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>갤럭시 S </td>
+                <td>90만원</td>
+                <td>1</td>
+                <td>2012.01.01</td>
+                <td>010-1234-7894</td>
+            </tr>
+            <tr>
+                <td>아이폰 12</td>
+                <td>990$</td>
+                <td>010</td>
+                <td>2020.01.01</td>
+                <td>01012347894</td>
+            </tr>
+            <tr>
+                <td>辛라면</td>
+                <td>650원</td>
+                <td>96</td>
+                <td>2020.01.01</td>
+                <td>042-128-1434</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        var wb = XLSX.utils.table_to_book(document.getElementById('mytable'), { sheet: "시트명", raw: true });
+        XLSX.writeFile(wb, ('파일명.xlsx'));
+    </script>
+</body>
+
+
+</html>
